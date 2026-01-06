@@ -12,6 +12,7 @@ import axios from "axios"
 import { useState } from "react"
 import { toast } from "sonner"
 import { useRouter } from "next/navigation"
+import { ck } from "@/utils/cookie"
 
 
 export default function SignInForm() {
@@ -27,8 +28,12 @@ export default function SignInForm() {
                     username ,
                     password
                })
-               toast.success("Dang nhap thanh cong")
-               route.push("/")
+               if(res.status === 200 && res.data?.AccessToken){
+                toast.success("Dang nhap thanh cong")
+                ck.set("token",res.data?.AccessToken)
+                route.replace("/")
+               }
+               
                
           } catch (error) {
                console.log("Thong tin tai khoan hoac mat khau khong chinh xac" , error)

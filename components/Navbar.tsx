@@ -25,6 +25,7 @@ export default function MainMenu() {
             await axios.post("http://localhost:5001/api/auth/signout")
             toast.success("Dang xuat thanh cong")
             ck.remove("refreshToken")
+             ck.remove("token")
             route.replace("/signin")
 
 
@@ -41,7 +42,7 @@ export default function MainMenu() {
 
                     {/* HOME */}
                     <NavigationMenuItem className="px-4 py-2 font-medium">
-                        <Link href="/" passHref >                 
+                        <Link href="/"  >                 
                                 Home
                         </Link>
                     </NavigationMenuItem>
@@ -55,7 +56,7 @@ export default function MainMenu() {
                         <NavigationMenuContent>
                             <ul className="w-48 p-2 space-y-1">
                                 <li>
-                                    <Link href="/blogs" passHref legacyBehavior className="px-3 py-2 rounded hover:bg-accent">
+                                    <Link href="/blogs"  className="px-3 py-2 rounded hover:bg-accent">
                                         
                                             Danh sách blog
                                        
@@ -63,7 +64,7 @@ export default function MainMenu() {
                                 </li>
 
                                 <li>
-                                    <Link href="/blogs/create" passHref legacyBehavior className="px-3 py-2 rounded hover:bg-accent">
+                                    <Link href="/blogs/create"   className="px-3 py-2 rounded hover:bg-accent">
                                       
                                             Viết blog
                                        
@@ -75,7 +76,7 @@ export default function MainMenu() {
 
                     {/* ABOUT */}
                     <NavigationMenuItem>
-                        <Link href="/about" passHref legacyBehavior className="px-4 py-2 font-medium">
+                        <Link href="/about"   className="px-4 py-2 font-medium">
                            
                                 About
                            
